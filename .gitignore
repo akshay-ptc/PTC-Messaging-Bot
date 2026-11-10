@@ -1,0 +1,22 @@
+# Environment Variables (CRITICAL: Never commit bot tokens!)
+.env
+.env.local
+
+# SQLite Database
+*.sqlite
+*.sqlite3
+*.db
+
+# Python cache & virtual environments
+__pycache__/
+*.py[cod]
+*$py.class
+venv/
+.venv/
+env/
+
+# Temporary attachments cache
+temp_attachments/
+
+# Logs
+*.log

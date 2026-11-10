@@ -1,0 +1,2 @@
+# Cog package initialization
+
