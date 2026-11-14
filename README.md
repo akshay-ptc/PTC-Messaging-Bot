@@ -41,13 +41,18 @@ Discord strictly monitors bot DM velocity and bans bots that blast hundreds of D
   - Discord Slash Command permissions: `administrator=True`.
   - Runtime decorator `@founder_or_admin_only()` ensuring only the **Server Founder/Owner** or members with Administrator permissions can trigger operations.
 
-### 6. ⚡ Full CRUD Management
+### 6. ⚡ Full CRUD Management & JSON Database
+- **Pure JSON Database**: Stores all data in `bot_database.json` with thread-safe atomic writes (zero corruption, fully human-readable).
 - **Campaign CRUD**: Create, view status, list history, pause, resume, or cancel active broadcasts.
 - **Settings CRUD**: Update verification channels, role IDs, reminder delays, and custom message templates.
-- **Template CRUD**: Save, read, list, and delete reusable announcement templates in SQLite.
+- **Template CRUD**: Save, read, list, and delete reusable announcement templates.
 - **Blacklist CRUD**: Manage user opt-outs so compliant members are never messaged.
 
-### 7. 📄 Official PDF Command Manual Exporter
+### 7. 💾 Instant Backup & Restore (Re-Add & Server Migration Protection)
+- **`/backup download`**: Generates and sends a full `PTC_Bot_Backup_YYYYMMDD_HHMMSS.json` snapshot directly to the admin in Discord.
+- **`/backup restore`**: Upload your `.json` backup file in Discord to restore 100% of your configurations, templates, reminders, and broadcast history. Perfect if you remove the bot, switch servers, or migrate hosts!
+
+### 8. 📄 Official PDF Command Manual Exporter
 - Run `/export_pdf` in Discord to receive a formatted, executive-style PDF manual directly in your server.
 
 ---
@@ -76,6 +81,8 @@ Discord strictly monitors bot DM velocity and bans bots that blast hundreds of D
 | **`/blacklist add`** | `user`, `[reason]` | **[CREATE]** Opt-out/blacklist a member from receiving DMs. |
 | **`/blacklist remove`** | `user` | **[DELETE]** Remove user from blacklist. |
 | **`/blacklist list`** | None | **[READ]** List all blacklisted members. |
+| **`/backup download`** | None | **[BACKUP]** Generates and sends full JSON database snapshot in Discord. |
+| **`/backup restore`** | `backup_file` (.json) | **[RESTORE]** Upload JSON backup to restore all settings, reminders & templates. |
 | **`/export_pdf`** | None | Exports and uploads `PTC_Bot_Command_Reference.pdf` directly into Discord. |
 | **`/system_status`** | None | Real-time ping, uptime status, cached members, and keep-alive health. |
 

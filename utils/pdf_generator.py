@@ -309,6 +309,16 @@ def generate_pdf(output_path: str = "PTC_Bot_Command_Reference.pdf"):
             Paragraph("<b>name:</b> str", desc_style),
             Paragraph("<b>[DELETE]</b> Remove a saved template.", desc_style)
         ],
+        [
+            Paragraph("<b>/backup download</b>", code_style),
+            Paragraph("None", desc_style),
+            Paragraph("<b>[BACKUP]</b> Exports full JSON database snapshot to download in Discord.", desc_style)
+        ],
+        [
+            Paragraph("<b>/backup restore</b>", code_style),
+            Paragraph("<b>backup_file:</b> .json attachment", desc_style),
+            Paragraph("<b>[RESTORE]</b> Restores all settings, templates, reminders & campaigns from a backup.", desc_style)
+        ],
     ]
     t4 = Table(cfg_data, colWidths=[130, 140, 270])
     t4.setStyle(TableStyle([

@@ -33,8 +33,8 @@ except (ValueError, TypeError):
 # Web Server Settings (for Render / UptimeRobot 24/7 keep-alive)
 PORT = int(os.getenv("PORT", "8080"))
 
-# Database Path
-DB_PATH = os.getenv("DB_PATH", str(BASE_DIR / "bot_database.sqlite"))
+# Database Path (Pure JSON database)
+DB_PATH = os.getenv("DB_PATH", str(BASE_DIR / "bot_database.json"))
 
 # Assets Path
 ASSETS_DIR = BASE_DIR / "assets"
